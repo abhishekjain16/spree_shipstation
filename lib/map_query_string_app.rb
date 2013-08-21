@@ -6,7 +6,7 @@ class MapQueryStringApp
   def self.call(env)
     controller_name = 'spree/shipstation_controller'
     query           = Rack::Utils.parse_nested_query(env['QUERY_STRING'])
-    action          = query['action'] || :index
+    action          = query['action'] || :export
 
     controller = controller_name.classify.constantize
     controller.action(action).call(env)
